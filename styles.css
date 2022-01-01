@@ -3,17 +3,31 @@
 	width: 100%;
 	text-align: center;
 	font-size: 24px;
-	font-color: white;
+	/*color: rgb(139, 35, 187);*/
 }
 
 body {
 	background-color: rgba(40, 40, 40, 1)
 }
 
-p {
+/*p {
 	color: white;
 	text-align: center;
 	font-size: 24px;
+}*/
+
+.standardParagraph {
+	color: white;
+	text-align: center;
+	font-size: 24px;
+}
+
+.projectDescription {
+	color: white;
+	text-align: left;
+	font-size: 24px;
+	padding-top: 20px;
+	padding-left: 50px;
 }
 
 h1 {
@@ -22,7 +36,56 @@ h1 {
 	font-size: 45px;
 	/*font family */
 }
-	
-hr {
 
+.list {
+	width: 100%;
+	font-size: 30px;
+	padding-left: 25px;
+	padding-top: 50px;
+	/*color: rgb(139, 35, 187);*/
 }
+
+h2{
+	color: white;
+	text-align: left;
+	padding-top: 50px;
+	padding-left: 25px;
+	font-size: 30px;
+}
+
+a{
+	color: rgb(143, 44, 189)
+}
+
+a:active{
+	color: rgb(150, 35, 0)
+}
+
+a:hover {
+	color: rgb(27, 165, 45)
+}
+
+.projectElement{
+	font-size: 30px;
+	text-align: left;
+	padding-top: 50px;
+	padding-left: 25px;
+}
+
+/*.menuButton {
+	background-color: rgb(235, 231, 231);
+	color: black;
+	padding: 20px;
+	font-size: 20px;
+	border: none;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block
+}
+
+.dropdownContent {background-color: rgb(135, 131, 131)}
+
+.dropdown:hover .dropdownContent {display: block;}
+*/
