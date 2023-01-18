@@ -20,6 +20,10 @@ body {
 	color: white;
 	text-align: center;
 	font-size: 24px;
+
+	padding-top: 20px;
+	padding-left: 80px;
+	padding-right: 80px;
 }
 
 .projectDescription {
@@ -95,4 +99,50 @@ a:hover {
 .topnav a.active {
 	background-color: #ffffff;
 	color: rgb(36, 33, 33);
+}
+
+pre code {
+	background-color:#eee;
+	border: 1px solid #999;
+	display: block;
+	padding:15px;
+	margin-left: 250px;
+	margin-right: 250px;
+
+}
+
+code {
+	font-family: monospace;
+	font-size:120%;
+
+}
+
+.Description {
+	color: white;
+	text-align: left;
+	font-size: 22px;
+	padding-top: 20px;
+	padding-left: 80px;
+	padding-right: 80px;
+}
+
+.horizontal-flex {
+	display: flex;
+	flex-flow:row nowrap;
+	justify-content: center;
+	margin: 20px;
+}
+
+img {
+	padding:5px;
+}
+
+.link{
+		color: white;
+		text-align: center;
+		font-size: 24px;
+	
+		padding-top: 20px;
+		padding-left: 80px;
+		padding-right: 80px;
 }

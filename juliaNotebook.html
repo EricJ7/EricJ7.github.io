@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel='stylesheet' href='styles.css'>
+        <title>Image Processing Julia Notebook</title>
+    </head>
+
+        <h1>Image Processing Julia Notebook</h1>
+
+        <div class="topnav">
+			<a href="index.html">Home</a>
+			<a href="resume.html">Resume</a>
+			<a class="active" href="projects.html">Projects</a>
+			<a href="about.html">About</a>
+            <a href="https://github.com/EricJ7">Github</a>
+		</div>
+
+        <div class="link">
+            <a href="github.com/ericj7/tobeadded">Complete Repo (Github)</a>
+        </div>
+
+        <div class="standardParagraph">
+            <p>Example of image convolution performed on the same image,
+                the first image is done with a 3x3 box blur kernel, the second
+                a 5x5 and the last a 9x9
+            </p>
+        </div>
+
+        <div>
+            <img src="images/car_blur_3x3_boxBlurEdited.png">
+            <img src="images/car_blur_5x5_boxBlurEdited.png">
+            <img src="images/car_blur_9x9_boxBlurEdited.png">
+        </div>
+
+        <div class="standardParagraph">
+            <p>
+                Here is a code snippet for what the convolution function
+                looks like.
+            </p>
+        </div>
+
+        <pre>
+            <code>
+                function convolve(img, kernel)
+                    (length, width) = size(img)
+                    (kSum) = floor(sum(kernel))
+                    (kLength, kWidth) = size(kernel)
+
+                    copyImage = copy(img)
+
+                    x0 = int(floor(kLength/2)+1)
+                    y0 = int(floor(kWidth/2)+1)
+
+                    for i in x0+1:length-x0
+                        for j in y0+1:length-y0
+                            (r,g,b) = matrixDotProductClipping(kernel, img[i-x0+1:i+x0,j-y0+1:j+y0])
+                            # where img[i-x0+1....] is a subset of the image underlying the kernel
+
+                            copyImage[i,j] = RGB(r, g, b)
+
+                        end
+                    end
+
+                    return copyImage
+
+                end
+            </code>
+        </pre>
+
+        <div class="Description">
+            <p>Here you can see that the method to product the r, g, b, values is called 
+                matrixDotProductClipping. In this case, we make use of the method of clipping to
+                allow us to visualize the convolution.
+            </p>
+
+            <p>
+                When performing a convolution, some pixel values may exceed 255, or 1, and may be below 0. With clipping,
+                if a value is below 0, or above 1 (255), then we set it to 0 or 1 respectively. That would look something 
+                like this:
+            </p>
+        </div>
+
+        <pre>
+            <code>
+                function clip(r, g, b)
+
+                    if r > 1
+                        r = 1
+                    elseif r < 0
+                        r = 0
+                    end
+
+                    if g > 1
+                        g = 1
+                    elseif g < 0
+                        g = 0
+                    end
+
+                    if b > 1
+                        b = 1
+                    elseif b < 0
+                        b = 0
+                    end
+
+                    return (r, g, b)
+
+                end
+            </code>
+        </pre>
+
+        <div class="Description">
+            <p>
+                This function would be used in the matrixDotProductClipping secondary function which is used in the convolve function. Alternatively,
+                if we wanted to employ the method of normalization to visualize our convolution, we would not clip any values, and our convolve function
+                would look a lot different. For example, we would not write the r, g, b values to the images immediately, we would first need to normalize 
+                the rgb values directly before writing them onto an image.
+            </p>
+
+            <p>
+                For this reason, I have written a special convolve function which instead writes the convolved r, g, b values to an array of their own,
+                which will then be sent to a normalize function, and then an imageConstruction function. (See below)
+            </p>
+        </div>
+
+        <div class="standardParagraph">
+            <p>
+                Here is an example of image convolution performed on a lighthouse, with the purpose to sharpen the image. The original image
+                is on the far left, convolution done with a 3x3 sharpening kernel in the middle, and another alternative 3x3 sharpening kernel
+                on the far right:
+            </p>
+        </div>
+
+        <div class="horizontal-flex">
+            <img src="images/download.png">
+            <img src="images/lighthouse_sharpenA_3x3_clipping.png">
+            <img src="images/lighthouse_sharpenB_3x3_clipping.png">
+        </div>
+
+        <div class="standardParagraph">
+            <p>
+                For reference, the kernels used to convolve the image are:
+                for the middle and right images respectively.
+            </p>
+        </div>
+
+        <pre>
+            <code>
+                {                               {
+                    {0  -1  0}                      {-1 -1  -1}
+                    {-1  5 -1}                      {-1  9  -1}
+                    {0  -1  0}                      {-1  -1 -1}
+                }                               }
+            </code>
+        </pre>
+
+        <
+
+</html>
