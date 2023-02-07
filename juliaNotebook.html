@@ -153,6 +153,54 @@
             </code>
         </pre>
 
-        <
+        <div class="standardParagraph">
+            <p>
+                Let us now take a look at some image segmentation using 
+                the convolution function. Here we will be applying the sobel
+                operator to an image to emphasis the edges in an image.
+            </p>
+
+            <p>
+                On the left we have the original image, and on the right we have
+                converted the image to grayscale to prepare for the application of the sobel filter.
+            </p>
+        </div>
+
+        <div class="horizontal-flex">
+            <img src="images/lenna.png">
+            <img src="images/lenna_Grayscale.png">
+        </div>
+
+        <div class="standardParagraph">
+            <p>
+                On the left we have applied the sobel X filter which will emphasize vertical edges, 
+                in the middle we have  applied the sobel Y filter, which will emphasize horizontal edges. and 
+                on the right we have combined the results of the sobel X and sobel Y filter to produce an overall
+                emphasis of edges.
+            </p>
+        </div>
+
+        <div class="horizontal-flex">
+            <img src="images/lenna_sobelX.png">
+            <img src="images/lenna_sobelY.png">
+            <img src="images/lenna_sobelXY.png">
+        </div>
+
+        <div class="standardParagraph">
+            <p>
+                Once again, for reference, the kernels used to apply the sobel filter to are, for the 
+                left (sobel X) and middle (sobel Y):
+            </p>
+        </div>
+
+        <pre>
+            <code>
+                {                               {
+                    {1   0  -1}                      {1   2   1}
+                    {2   0  -2}                      {0   0   0}
+                    {1   0  -1}                      {-1 -2  -1}
+                }                               }
+            </code>
+        </pre>
 
 </html>
