@@ -1,70 +1,104 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel='stylesheet' href='styles.css'>
-        <title>Projects</title>
-    </head>
-    <body>
-        <h1>Projects</h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <div class="topnav">
-			<a href="index.html">Home</a>
-			<a href="resume.html">Resume</a>
-			<a class="active" href="projects.html">Projects</a>
-			<a href="about.html">About</a>
-            <a href="https://github.com/EricJ7">Github</a>
-		</div>
+    <script src="https://kit.fontawesome.com/fb6af6dc88.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="image.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <div class="projectElement">
-            <!--contains pictures/videos of project -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-            <a href="">CO2 Monitoring System in TinkerCAD</a>
-        </div>
+    <link rel="stylesheet" href="styles.css">
+    <title style="color: black">Projects</title>
 
-        <div class="projectDescription">
-            <p>Designed and Implemented a circuit system in TinkerCAD using multiple Arduino UNOs for a Grade 12 Project.</p>
-            <p>Circuit consisted of multiple sensors to detect a variety of harmful gases in the atmosphere. Each "child" Arduino</p>
-            <p>would send its environmental input to the main Arduino UNO for analysis. If the set threshold was passed for one of</p>
-            <p>the gases, the main Arduino as well as the "child" Arduino would begin to buzz at a high frequency and blink their LEDs</p>
-        </div>
-
-        <div class="projectElement">
-            <!--juliaNotebook.html-->
-            <a href="juliaNotebook.html">Image Processing Julia Notebook</a>
-        </div>
-
-        <div class="projectDescription">
-            <p>Created a small Julia notebook in Jupyter to perform some operations on images such as converting an image to grayscale, 
-                performing convolutions on images using specific kernels to generate blurred or sharpened images, to highlight edges, etc
-                Made use of techniques such as normalization, clipping, and shifting to visualize the convolution.
-            </p>
-        </div>
+</head>
+<body>
+    <style>
+        body {
+            background-image: url("images/black.jpg");
+            background-size:10%;
+            cursor: url("images/bishop.cur"), auto;
+        }
+    </style>
 
 
-        <div class="projectElement">
-            <a href="https://github.com/EricJ7/simple-linear-regression">Simple Linear Regression</a>
-        </div>
-        <div class="projectDescription">
-            <p>Implemented linear regression in python from scratch to model the relationship between a persons age and their blood pressure.
-                Made use of matplotlib to visualize the linear relationship on a graph. </p>
-            <a href="bp.csv">dataset</a>
-        </div>
 
-        <div class="projectElement">
-            <!--linearAlgebraVisualizationTool.html-->
-            <a href="">Linear Algebra Visualization Tool</a>
-        </div>
-        <div class="projectDescription">
-            <p>Tool to visualize vector operations such as addition, subtraction, transposition, matrix transformations (y-axis reflection, rotation by theta degrees) 
-                etc. Able to compute the solution to a system of linear equations in 2D or 3D space, which would then be plotted with matplotlib and Axes3D. Numpy used 
-                help to solve some of the more challenging aspects of solving systems. </p>
-            <b><p>This project is still in progress</p></b>
-        </div>
+<div class="menu-container">
+    <i class="fas fa-bars menu-icon"></i>
+    <ul class="dropdown-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html#about-me">About Me</a></li>
+    </ul>
+</div>
 
-        <div class="projectElement">
-            <!--textFileEncryption-->
-            <a href="smallProjects.html">Small Projects Made in < a Few Hours</a>
-        </div>
+<div class="project-container" id="blue">
+    <h1 class="project-title">Parallel Page Rank</h1>
+    <p class="project-description">Developed a parallel implementation of Google's PageRank algorithm to enhance the efficiency of ranking large datasets of webpages. Written in C and utilizing OpenMPI for parallel processing, the project aimed to explore and demonstrate the scalability and performance of the algorithm in multi-processor environments.
+    </p>
 
-    </body>
-</html> 
+    <p class="project-description">Through our analysis, we identified matrix multiplication as the critical computation involved in determining PageRank scores, We realized that efficiently handling this computation would be key to improving performance. To achieve this, we applied a column-wise block-striped decomposition of a matrix, which allowed us to distrubite the workload across multiple processors and allow us to efficiently perform the computations necessary on the matrix, while minimizing communication overhead between processors.</p>
+
+    <p class="project-description">Working in a team of three, we also implemented bash scrips to automate slurm job submissions to the Teach cluster located at the University of Toronto. This automation facilitated systematic testing across various configurations. allowing us to evaluate the performance of our parallel implementation on different node sizes, including 2, 8, 16, and up to 64 processors. these tests enabled us to analyze metric suchs as the speedup and efficiency. </p>
+
+    <p class="project-description">By determining an effective way to parallelize and split the computations amongst the processors, we achieved significantly faster processing times for datasets containing hundreds of thousands of webpages that would've taken sequential implementations hours and even days. The projects outcome highlighted the advantages of parallelization in handling large-scale data and provided valuable insights into optimizing computations on high-performance systems. The hands-on experience with OpenMPI, Bash scripting and multi-processor architecture was a key takeaway from this project.</p>
+
+</div>
+
+<div class="project-container" id="red">
+    <h1 class="project-title">Image Compression using K-Means Clustering</h1>
+    <p class="project-description">Developed a program in Java with two primary objectives: reducing image file size and allowing for easier segmentation. Lossy image compression was achieved by using the k-means clustering algorithm applied to the pixels in the images. By specifying a desired number of k clusters, the program approximates the original image, reducing the number of colours needed to represent the image, effectively  minimizing file size while still maintaining a simplified representation which also allows for efficiently performing segmentation tasks due to a couple reasons: reduced colour variance, improved contrast between regions, and noise reduction.</p>
+</div>
+
+<div class="project-container" id="green">
+    <h1 class="project-title">Image Convolutions/Segmentation using Julia</h1>
+    <p class="project-description">Using Julia, and Jupyter Notebook, experimented with performing image convolutions on images from scratch. Able to acheive results such as blurring of images, sharpening, as well as applying operators such as the sobel X and Y for edge detection. Done without using libraries. </p>
+
+    <div class="project-images">
+        <img src="images/car_blur_3x3_boxBlurEdited.png">
+        <img src="images/car_blur_5x5_boxBlurEdited.png">
+        <img src="images/car_blur_9x9_boxBlurEdited.png">
+    </div>
+
+    <p class="project-description">The first image is the base image with nothing done to it. The second image is the output of the program after we had applied a 3x3 Gaussian blur to it. It's hard to see a difference as the image is quite small and the blurring effect of the 3x3 is quite minimal. On the far right is the output of the program after we apply a Gaussian blur using a 9x9 matrix. You can really see the blurring effects here. The matrix used for a gaussian blur has its elements based off of the gaussian function, with the center of the matrix holding more 'weight' than the rest of the matrix. As you move away from the center, the pixels away hold less and less value and have less of an impact on the value of the convolution for that pixel. In a 3x3 blur, we are only looking at other pixels within a single pixel distance, with a 9x9 blur, we are now taking into account pixels that are 4 pixels away.</p>
+
+    <p class="project-description">Now, here is an example of image convolution done on this lighthouse image, with the purpose to sharpen a blurry image. The original image is on the far left, the convolution done with a 3x3 sharpening kernel in the middle, and another alternative 3x3 sharpening kernel on the right.</p>
+
+    <div class="project-images">
+        <img src="images/download.png">
+        <img src="images/lighthouse_sharpenA_3x3_clipping.png">
+        <img src="images/lighthouse_sharpenB_3x3_clipping.png">
+    </div>
+
+    <p class="project-description">Another useful feature of image convolutions is to aid in image segmentation. One important feature we can extract from images is their edges, which can be useful in providing cues for object classification and detection. Here we have the classic Lenna photo. Before we do any edge detection, we will first prepare the image by converting it to grayscale.</p>
+
+    <div class="project-images">
+        <img src="images/lenna.png">
+        <img src="images/lenna_Grayscale.png">
+    </div>
+
+    <p class="project-description">The grayscale image was computed by moving across the entire image, and at each pixel, calculating the sum of each color channel of the pixel R + G + B, averaging it out, and then rewriting each channel using this average value.</p>
+
+    <p class="project-description">Now that we have converted the image to grayscale, we can now perform our Sobel operators on the image. On the left, we have the output of the program after we applied a Sobel X filter which will emphasize the vertical edges in the image, in the middle we have applied the Sobel Y filter, which will emphasize the horizontal edges of the image, and on the right, we have combined the results of the Sobel X and Sobel Y filters to produce an overall emphasis of edges.</p>
+
+    <div class="project-images">
+        <img src="images/lenna_sobelX.png">
+        <img src="images/lenna_sobelY.png">
+        <img src="images/lenna_sobelXY.png">
+    </div>
+
+    <p class="project-description">These images were all produced using no libraries to help with convolution. The choice of matrices to use for each operation such as blurring, sharpening, and the sobel X and sobel Y filters were picked from wikipedia.</p>
+
+</div>
+
+<div class="project-container" id="purple">
+    <h1 class="project-title">Live Video Face Blur using OpenCV</h1>
+
+    <p class="project-description">A Python program created utilizing OpenCV to detect faces using a pre-trained classifier. When a face is detected, a key can be pressed to apply a Gaussian blur over the face. The blur is applied through image convolutions, which smooth out the pixecls in the detected face region. This setup allows for real-time interaction, enabling dynamic modification of images by blurring faces upon detection and a single keystroke. The program showcases the use of computer vision and image processing techniques effectively.</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
